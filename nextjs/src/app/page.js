@@ -27,7 +27,7 @@ const Home = () => {
           axios.get('http://localhost:8000/workouts/workouts', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('https://workout-website-rqt9.onrender.com//routines', {
+          axios.get('https://workout-website-rqt9.onrender.com/routines', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -45,7 +45,7 @@ const Home = () => {
   const handleCreateWorkout = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://workout-website-rqt9.onrender.com//workouts', {
+      const response = await axios.post('https://workout-website-rqt9.onrender.com/workouts', {
         name: workoutName,
         description: workoutDescription,
       });
