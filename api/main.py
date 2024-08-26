@@ -10,11 +10,12 @@ Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:3000'],  # Update with Render's domain if needed
+    allow_origins=['https://workout-website-rqt9.onrender.com'],  # Replace with your frontend's Render URL
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
 )
+
 
 @app.get("/")
 def health_check():
