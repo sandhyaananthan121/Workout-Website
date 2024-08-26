@@ -15,7 +15,9 @@ const Home = () => {
   const [routineDescription, setRoutineDescription] = useState('');
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
 
-  const token = localStorage.getItem('token');
+  //const token = localStorage.getItem('token');
+  const token = typeof window !== "undefined" ? localStorage.getItem('token') : null;
+
 
   useEffect(() => {
     const fetchWorkoutsAndRoutines = async () => {
@@ -74,11 +76,14 @@ const Home = () => {
   return (
     <ProtectedRoute>
       <div className="container">
-        <h1>Welcome!</h1>
-        <button onClick={logout} className="btn btn-danger">Logout</button>
+        
+        <div className='d-flex justify-content-between'>
+        <h1 className='mt-5'>Welcome!</h1>
+        <button onClick={logout} className="btn btn-danger btn-md h-75 mt-5">Logout</button>
+        </div>
 
-        <div className="accordion mt-5 mb-5" id="accordionExample">
-          <div className="accordion-item">
+        <div className="accordion mt-5 mb-5 ms-5" id="accordionExample">
+          <div className="accordion-item ">
             <h2 className="accordion-header" id="headingOne">
               <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Create Workout
@@ -114,7 +119,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item mr-2">
             <h2 className="accordion-header" id="headingTwo">
               <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Create Routine
@@ -168,12 +173,12 @@ const Home = () => {
           </div>
         </div>
 
-        <div>
-          <h3>Your routines:</h3>
+        <div className='mb-5'>
+          <h3 className='mb-4'>Your routines:</h3>
           
           <ul>
           {routines.map(routine => (
-              <div className="card" key={routine.id}>
+              <div className="card w-100" key={routine.id}>
                 <div className="card-body">
                 <h5 className="card-title">{routine.name}</h5>
                 <p className="card-text">{routine.description}</p>
