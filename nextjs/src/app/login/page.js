@@ -21,7 +21,7 @@ const Login = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('https://workout-website-rqt9.onrender.com/auth', {
+            await axios.post('https://workout-website-rqt9.onrender.com:8000/auth', {
                 username: registerUsername,
                 password: registerPassword,
             });
