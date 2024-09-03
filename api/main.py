@@ -10,7 +10,7 @@ Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://workout-website-rqt9.onrender.com'],  # Replace with your frontend's Render URL
+    allow_origins=['https://workoutwithyou.onrender.com'],  # Replace with your frontend's Render URL
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
