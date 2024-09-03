@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
             const formData = new FormData();
             formData.append('username', username);
             formData.append('password', password);
-            const response = await axios.post('https://workout-website-rqt9.onrender.com:8000/auth/token', formData, {
+            const response = await axios.post('https://workout-website-rqt9.onrender.com/auth/token', formData, {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             });
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
