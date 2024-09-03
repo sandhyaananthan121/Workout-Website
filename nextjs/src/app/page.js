@@ -24,10 +24,10 @@ const Home = () => {
       try {
         const token = localStorage.getItem('token'); 
         const [workoutsResponse, routinesResponse] = await Promise.all([
-          axios.get('http://localhost:8000/workouts:8000/workouts', {
+          axios.get('http://localhost:8000/workouts/workouts', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('https://workout-website-rqt9.onrender.com:8000/routines', {
+          axios.get('https://workout-website-rqt9.onrender.com/routines', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -45,7 +45,7 @@ const Home = () => {
   const handleCreateWorkout = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://workout-website-rqt9.onrender.com:8000/workouts', {
+      const response = await axios.post('https://workout-website-rqt9.onrender.com/workouts', {
         name: workoutName,
         description: workoutDescription,
       });
@@ -60,7 +60,7 @@ const Home = () => {
   const handleCreateRoutine = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://workout-website-rqt9.onrender.com:8000/routines', {
+      const response = await axios.post('https://workout-website-rqt9.onrender.com/routines', {
         name: routineName,
         description: routineDescription,
         workouts: selectedWorkouts,
