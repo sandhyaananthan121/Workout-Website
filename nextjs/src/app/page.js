@@ -24,7 +24,7 @@ const Home = () => {
       try {
         const token = localStorage.getItem('token'); 
         const [workoutsResponse, routinesResponse] = await Promise.all([
-          axios.get('http://localhost:8000/workouts/workouts', {
+          axios.get('https://workout-website-rqt9.onrender.com/workouts', {
             headers: { Authorization: `Bearer ${token}` },
           }),
           axios.get('https://workout-website-rqt9.onrender.com/routines', {
